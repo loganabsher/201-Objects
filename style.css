@@ -1,0 +1,19 @@
+.highlights{
+  font-family:
+  color: cyan;
+}
+#data{
+  font-family: helvetica;
+  color: lightgreen;
+  background-color: grey;
+  border: 2px dashed white;
+}
+body{
+  font-family: times;
+  color: lightblue;
+  background-color: darkgrey;
+}
+.table{
+  background-color: grey;
+  border: 2px dashed white;
+}
