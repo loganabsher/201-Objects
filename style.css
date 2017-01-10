@@ -1,0 +1,35 @@
+.highlights{
+  font-family:
+  color: cyan;
+}
+.data{
+  font-family: helvetica;
+  color: lightgreen;
+  background-color: grey;
+  border: 2px dashed white;
+}
+body{
+  font-family: times;
+  color: lightblue;
+  background-color: darkgrey;
+}
+.table{
+  background-color: grey;
+  border: 2px dashed white;
+}
+#sal{
+  background-image: url('salmon.png');
+  background-repeat: no-repeat;
+  opacity: .5;
+  z-index: -1;
+}
+#location{
+  color: red;
+}
+#title{
+  margin: 4em;
+  text-align: center;
+  font-style: oblique;
+  font-weight: bolder;
+  font: 12em;
+}
