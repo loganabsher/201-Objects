@@ -3,30 +3,36 @@
 function randomAverage(name, minCust, maxCust, avrg){
   var average = 0;
   var hours = 0;
-  document.write('<id="location">' + name + ':<br>');
+  var data = [];
+  document.write('<h2 id="location">' + name + ':<br>');
   for(var i = 6; i <= 12; i++){
-    var r = Math.round((Math.random() * 120 + 1));
-    console.log(r + ' cookies at ' + i + ' am');
-    document.write(i + 'am: ' + r + ' cookies<br>');
-    average = average + r;
-    console.log(average);
-    hours++;
-    console.log(hours);
-  }
-  for(var i = 1; i <= 8; i++){
-    var random = Math.round((Math.random() * 120 + 1));
-    console.log(random + ' cookies at ' + i + ' pm');
-    document.write(i + 'pm: ' + random + ' cookies<br>');
+    var random = Math.round((Math.random() * maxCust + minCust));
+    console.log(random + ' cookies at ' + i + ' am');
+    document.write('<p class="data">' + i + 'am: ' + random + ' cookies<br>');
+    data.push(random);
+    console.log(data);
     average = average + random;
     console.log(average);
     hours++;
     console.log(hours);
   }
-  document.write('Total: ' + average + ' cookies<br>');
+  for(var i = 1; i <= 8; i++){
+    var r = Math.round((Math.random() * maxCust + minCust));
+    console.log(r + ' cookies at ' + i + ' pm');
+    document.write('<p class="data">' + i + 'pm: ' + r + ' cookies<br>');
+    data.push(r);
+    console.log(data);
+    average = average + random;
+    console.log(average);
+    hours++;
+    console.log(hours);
+  }
+  document.write('<p class="data">Total: ' + average + ' cookies<br>');
   console.log(average);
   Math.round(average = average / hours);
   console.log(average);
-  document.write('Average: ' + average + ' cookies<br><br><br>');
+  document.write('<p class="data">Average: ' + average + ' cookies<br>');
+  return data;
 }
 // var t = 'this place';
 // var min = 13;
@@ -41,7 +47,7 @@ var firstAndPike = {
   avrg: 6.3,
   table: function(){
     console.log(this.name);
-    randomAverage(this.name, this.minCust, this.maxCust, this.avrg);
+    var data = randomAverage(this.name, this.minCust, this.maxCust, this.avrg);
   }
 };
 
@@ -55,7 +61,7 @@ var seaTacAirport = {
   avrg: 1.2,
   table: function(){
     console.log(this.name);
-    randomAverage(this.name, this.minCust, this.maxCust, this.avrg);
+    var data = randomAverage(this.name, this.minCust, this.maxCust, this.avrg);
   }
 };
 
@@ -69,7 +75,7 @@ var seattleCenter = {
   avrg: 3.7,
   table: function(){
     console.log(this.name);
-    randomAverage(this.name, this.minCust, this.maxCust, this.avrg);
+    var data = randomAverage(this.name, this.minCust, this.maxCust, this.avrg);
   }
 };
 
@@ -83,7 +89,7 @@ var capitolHill = {
   avrg: 2.3,
   table: function(){
     console.log(this.name);
-    randomAverage(this.name, this.minCust, this.maxCust, this.avrg);
+    var data = randomAverage(this.name, this.minCust, this.maxCust, this.avrg);
   }
 };
 
@@ -97,7 +103,7 @@ var alki = {
   avrg: 4.8,
   table: function(){
     console.log(this.name);
-    randomAverage(this.name, this.minCust, this.maxCust, this.avrg);
+    var data = randomAverage(this.name, this.minCust, this.maxCust, this.avrg);
   }
 };
 
