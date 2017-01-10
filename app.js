@@ -3,41 +3,41 @@
 var hours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', '8pm'];
 
 // takes in paramiters for random number range and creates and returns an array of 17 elements
-function randomAverage(name, minCust, maxCust, avrg){
+function randomAverage(name, minCust, maxCust){
   var average = 0;
+  var total = 0;
   var data = [];
   document.write('<h2 id="location">' + name + ':<br>');
   for(var i = 0; i <= hours.length - 1; i++){
+    // creating random variable based on input
     var random = Math.round((Math.random() * (maxCust - minCust) + minCust));
     console.log(random + ' cookies at ' + hours[i]);
     document.write('<p class="data">' + hours[i] + ' : ' + random + ' cookies<br>');
     data.push(random);
-    average = average + random;
+    total = total + random;
+    console.log(Math.round(average = total / (i + 1)) + ' average cookies at ' + hours[i]);
     console.log(average);
   }
-  // average is the total number of cookies during the day at this point, adding it to data array
-  document.write('<p class="data">Total: ' + average + ' cookies<br>');
-  data.push(average);
-  console.log(average);
-  // changing average to the actual average, rounding it, then adding it to the data array
-  Math.round(average = average / hours.length);
-  data.push(average);
-  console.log(average);
+  // total is the total number of customers during the day, it is added to data array
+  document.write('<p class="data">Total: ' + total + ' cookies<br>');
+  data.push(total);
+  console.log(total);
+  // adding the final average to the data array
   document.write('<p class="data">Average: ' + average + ' cookies<br>');
+  data.push(average);
   return data;
 }
-
-var firstAndPike = new location('First and Pike', 23, 65, 6.3, randomAverage('First and Pike', 23, 65, 6.3));
+// creating stores at different locations and different customer ranges
+var firstAndPike = new location('First and Pike', 23, 65, 6.3, randomAverage('First and Pike', 23, 65));
 console.log(firstAndPike);
-var seaTacAirport = new location('Seatac Airport', 3, 24, 1.2, randomAverage('Seatac Airport', 3, 24, 1.2));
+var seaTacAirport = new location('Seatac Airport', 3, 24, 1.2, randomAverage('Seatac Airport', 3, 24));
 console.log(seaTacAirport);
-var seattleCenter = new location('Seattle Center', 11, 28, 3.7, randomAverage('Seattle Center', 11, 28, 3.7));
+var seattleCenter = new location('Seattle Center', 11, 28, 3.7, randomAverage('Seattle Center', 11, 28));
 console.log(seattleCenter);
-var capitolHill = new location('Capitol Hill', 20, 38, 2.3, randomAverage('Capitol Hill', 20, 38, 2.3));
+var capitolHill = new location('Capitol Hill', 20, 38, 2.3, randomAverage('Capitol Hill', 20, 38));
 console.log(capitolHill);
-var alkiBeach = new location('Alki Beach', 2, 16, 4.8, randomAverage('Alki Beach', 2, 16, 4.8));
+var alkiBeach = new location('Alki Beach', 2, 16, 4.8, randomAverage('Alki Beach', 2, 16));
 console.log(alkiBeach);
-console.log(firstAndPike.data);
 
 function location(name, minCust, maxCust, avrg, data){
   this.name = name;
