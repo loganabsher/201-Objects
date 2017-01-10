@@ -13,10 +13,6 @@ body{
   color: lightblue;
   background-color: darkgrey;
 }
-h1{
-  text-align: center;
-  z-index: 1;
-}
 .table{
   background-color: grey;
   border: 2px dashed white;
@@ -29,4 +25,11 @@ h1{
 }
 #location{
   color: red;
+}
+#title{
+  margin: 4em;
+  text-align: center;
+  font-style: oblique;
+  font-weight: bolder;
+  font: 12em;
 }
