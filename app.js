@@ -2,6 +2,7 @@
 
 var hours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', '8pm'];
 
+// takes in paramiters for random number range and creates and returns an array of 17 elements
 function randomAverage(name, minCust, maxCust, avrg){
   var average = 0;
   var data = [];
@@ -14,9 +15,13 @@ function randomAverage(name, minCust, maxCust, avrg){
     average = average + random;
     console.log(average);
   }
+  // average is the total number of cookies during the day at this point, adding it to data array
   document.write('<p class="data">Total: ' + average + ' cookies<br>');
+  data.push(average);
   console.log(average);
+  // changing average to the actual average, rounding it, then adding it to the data array
   Math.round(average = average / hours.length);
+  data.push(average);
   console.log(average);
   document.write('<p class="data">Average: ' + average + ' cookies<br>');
   return data;
