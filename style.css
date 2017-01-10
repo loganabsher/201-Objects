@@ -2,7 +2,7 @@
   font-family:
   color: cyan;
 }
-#data{
+.data{
   font-family: helvetica;
   color: lightgreen;
   background-color: grey;
@@ -13,10 +13,20 @@ body{
   color: lightblue;
   background-color: darkgrey;
 }
+h1{
+  text-align: center;
+  z-index: 1;
+}
 .table{
   background-color: grey;
   border: 2px dashed white;
 }
 #sal{
-  
+  background-image: url('salmon.png');
+  background-repeat: no-repeat;
+  opacity: .5;
+  z-index: -1;
+}
+#location{
+  color: red;
 }
