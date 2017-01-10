@@ -11,19 +11,19 @@ function randomAverage(name, minCust, maxCust){
   for(var i = 0; i <= hours.length - 1; i++){
     // creating random variable based on input
     var random = Math.round((Math.random() * (maxCust - minCust) + minCust));
-    console.log(random + ' cookies at ' + hours[i]);
-    document.write('<p class="data">' + hours[i] + ' : ' + random + ' cookies<br>');
-    data.push(random);
     total = total + random;
     console.log(Math.round(average = total / (i + 1)) + ' average cookies at ' + hours[i]);
     console.log(average);
+    console.log(random + ' cookies at ' + hours[i]);
+    document.write('<p class="data">' + hours[i] + ' : ' + random + ' cookies <br>' + Math.round(average) + ' average cookies per hour<br>');
+    data.push(random);
   }
   // total is the total number of customers during the day, it is added to data array
   document.write('<p class="data">Total: ' + total + ' cookies<br>');
   data.push(total);
   console.log(total);
   // adding the final average to the data array
-  document.write('<p class="data">Average: ' + average + ' cookies<br>');
+  document.write('<p class="data">Average: ' + Math.round(average) + ' cookies<br>');
   data.push(average);
   return data;
 }
