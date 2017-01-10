@@ -10,23 +10,28 @@ function randomAverage(name, minCust, maxCust, avrg){
   for(var i = 0; i <= hours.length - 1; i++){
     var random = Math.round((Math.random() * (maxCust - minCust) + minCust));
     console.log(random + ' cookies at ' + hours[i]);
-    document.write('<p class="data">' + hours[i] + ' : ' + random + ' cookies<br>');
     data.push(random);
     average = average + random;
     console.log(average);
   }
   // average is the total number of cookies during the day at this point, adding it to data array
-  document.write('<p class="data">Total: ' + average + ' cookies<br>');
   data.push(average);
   console.log(average);
   // changing average to the actual average, rounding it, then adding it to the data array
   Math.round(average = average / hours.length);
   data.push(average);
   console.log(average);
-  document.write('<p class="data">Average: ' + average + ' cookies<br>');
   return data;
 }
-
+function printList(data){
+  var list = document.getElementById('data-list');
+  for(var i = hours.length; i > 0; i--){
+    console.log(data[i]);
+    var listEl = document.createElement('li');
+    listEl.textContent = data[i] + ' is the content at index: ' + i;
+    list.appendChild(listEl);
+  }
+}
 var firstAndPike = {
   name: 'First and Pike',
   minCust: 23,
@@ -35,6 +40,7 @@ var firstAndPike = {
   table: function(){
     console.log(this.name);
     var data = randomAverage(this.name, this.minCust, this.maxCust, this.avrg);
+    printList(data);
     console.log(data);
   }
 };
