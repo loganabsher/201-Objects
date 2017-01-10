@@ -30,6 +30,7 @@ body{
   margin: 4em;
   text-align: center;
   font-style: oblique;
-  font-weight: bolder;
-  font: 12em;
+}
+ul{
+  float: left;
 }
