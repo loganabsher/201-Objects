@@ -27,77 +27,105 @@ function randomAverage(name, minCust, maxCust, avrg){
   return data;
 }
 
-var firstAndPike = {
-  name: 'First and Pike',
-  minCust: 23,
-  maxCust: 65,
-  avrg: 6.3,
-  table: function(){
-    console.log(this.name);
-    var data = randomAverage(this.name, this.minCust, this.maxCust, this.avrg);
-    console.log(data);
-  }
-};
-
+var firstAndPike = new location('First and Pike', 23, 65, 6.3, randomAverage('First and Pike', 23, 65, 6.3));
 console.log(firstAndPike);
-firstAndPike.table();
-
-var seaTacAirport = {
-  name: 'Seatac Airport',
-  minCust: 3,
-  maxCust: 24,
-  avrg: 1.2,
-  table: function(){
-    console.log(this.name);
-    var data = randomAverage(this.name, this.minCust, this.maxCust, this.avrg);
-    console.log(data);
-  }
-};
-
+var seaTacAirport = new location('Seatac Airport', 3, 24, 1.2, randomAverage('Seatac Airport', 3, 24, 1.2));
 console.log(seaTacAirport);
-seaTacAirport.table();
-
-var seattleCenter = {
-  name: 'Seattle Center',
-  minCust: 11,
-  maxCust: 38,
-  avrg: 3.7,
-  table: function(){
-    console.log(this.name);
-    var data = randomAverage(this.name, this.minCust, this.maxCust, this.avrg);
-    console.log(data);
-  }
-};
-
+var seattleCenter = new location('Seattle Center', 11, 28, 3.7, randomAverage('Seattle Center', 11, 28, 3.7));
 console.log(seattleCenter);
-seattleCenter.table();
-
-var capitolHill = {
-  name: 'Capitol Hill',
-  minCust: 20,
-  maxCust: 38,
-  avrg: 2.3,
-  table: function(){
-    console.log(this.name);
-    var data = randomAverage(this.name, this.minCust, this.maxCust, this.avrg);
-    console.log(data);
-  }
-};
-
+var capitolHill = new location('Capitol Hill', 20, 38, 2.3, randomAverage('Capitol Hill', 20, 38, 2.3));
 console.log(capitolHill);
-capitolHill.table();
+var alkiBeach = new location('Alki Beach', 2, 16, 4.8, randomAverage('Alki Beach', 2, 16, 4.8));
+console.log(alkiBeach);
+console.log(firstAndPike.data);
 
-var alki = {
-  name: 'Alki Beach',
-  minCust: 2,
-  maxCust: 16,
-  avrg: 4.8,
-  table: function(){
-    console.log(this.name);
-    var data = randomAverage(this.name, this.minCust, this.maxCust, this.avrg);
-    console.log(data);
-  }
-};
+function location(name, minCust, maxCust, avrg, data){
+  this.name = name;
+  this.minCust = minCust;
+  this.maxCust = maxCust;
+  this.avrg = avrg;
+  this.data = data;
+}
 
-console.log(alki);
-alki.table();
+// var firstAndPike = {
+//   name: 'First and Pike',
+//   minCust: 23,
+//   maxCust: 65,
+//   avrg: 6.3,
+//   table: function(){
+//     console.log(this.name);
+//     var data = randomAverage(this.name, this.minCust, this.maxCust, this.avrg);
+//     console.log(data);
+//   }
+// };
+//
+// console.log(firstAndPike);
+// firstAndPike.table();
+//
+// var seaTacAirport = {
+//   name: 'Seatac Airport',
+//   minCust: 3,
+//   maxCust: 24,
+//   avrg: 1.2,
+//   table: function(){
+//     console.log(this.name);
+//     var data = randomAverage(this.name, this.minCust, this.maxCust, this.avrg);
+//     console.log(data);
+//   }
+// };
+//
+// console.log(seaTacAirport);
+// seaTacAirport.table();
+//
+// var seattleCenter = {
+//   name: 'Seattle Center',
+//   minCust: 11,
+//   maxCust: 38,
+//   avrg: 3.7,
+//   table: function(){
+//     console.log(this.name);
+//     var data = randomAverage(this.name, this.minCust, this.maxCust, this.avrg);
+//     console.log(data);
+//   }
+// };
+//
+// console.log(seattleCenter);
+// seattleCenter.table();
+//
+// var capitolHill = {
+//   name: 'Capitol Hill',
+//   minCust: 20,
+//   maxCust: 38,
+//   avrg: 2.3,
+//   table: function(){
+//     console.log(this.name);
+//     var data = randomAverage(this.name, this.minCust, this.maxCust, this.avrg);
+//     console.log(data);
+//   }
+// };
+//
+// console.log(capitolHill);
+// capitolHill.table();
+//
+// var alkiBeach = {
+//   name: 'Alki Beach',
+//   minCust: 2,
+//   maxCust: 16,
+//   avrg: 4.8,
+//   table: function(){
+//     console.log(this.name);
+//     var data = randomAverage(this.name, this.minCust, this.maxCust, this.avrg);
+//     console.log(data);
+//   }
+// };
+//
+// console.log(alkiBeack);
+// alkiBeach.table();
+//
+// var russel = new person('russel', 27, 'russel@gohawks.com');
+// var adamwallraff = new person('Adam', 30, 'adamwallraff@gmail.com');
+// function person(name, age, email){
+//   this.name = name;
+//   this.age = age;
+//   this.email = email;
+// }
