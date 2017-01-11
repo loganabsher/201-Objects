@@ -22,25 +22,18 @@ function randomAverage(name, minCust, maxCust){
 }
 // creating stores at different locations and different customer ranges
 var headOfTable = new location('Store Location', null, null, null, hours);
-console.log(headOfTable);
 table(headOfTable);
 var firstAndPike = new location('First and Pike', 23, 65, 6.3, randomAverage('First and Pike', 23, 65));
-console.log(firstAndPike);
 table(firstAndPike);
 var seaTacAirport = new location('Seatac Airport', 3, 24, 1.2, randomAverage('Seatac Airport', 3, 24));
-console.log(seaTacAirport);
 table(seaTacAirport);
 var seattleCenter = new location('Seattle Center', 11, 28, 3.7, randomAverage('Seattle Center', 11, 28));
-console.log(seattleCenter);
 table(seattleCenter);
 var capitolHill = new location('Capitol Hill', 20, 38, 2.3, randomAverage('Capitol Hill', 20, 38));
-console.log(capitolHill);
 table(capitolHill);
 var alkiBeach = new location('Alki Beach', 2, 16, 4.8, randomAverage('Alki Beach', 2, 16));
-console.log(alkiBeach);
 table(alkiBeach);
 var totalsPerHour = new location('Totals', null, null, null, hourlyTotal(firstAndPike, seaTacAirport, seattleCenter, capitolHill, alkiBeach));
-console.log(totalsPerHour);
 table(totalsPerHour);
 
 function location(name, minCust, maxCust, avrg, data){
@@ -53,15 +46,13 @@ function location(name, minCust, maxCust, avrg, data){
 
 // constructs a table using an array of data
 function table(obj){
+  console.log(obj);
   var name = obj.name;
-  console.log(name);
   var tableEl = document.getElementById('cookies');
-  console.log(obj.data.length);
   var nameEl = document.createElement('tr');
   nameEl.textContent = name;
   for(var i = 0; i < obj.data.length; i++){
     var content = obj.data[i];
-    console.log(obj.data[i]);
     var dataEl = document.createElement('td');
     dataEl.textContent = content;
     nameEl.appendChild(dataEl);
@@ -72,7 +63,6 @@ function hourlyTotal(firstAndPike, seaTacAirport, seattleCenter, capitolHill, al
   var total = [];
   for(var i = 0; i < firstAndPike.data.length; i++){
     total.push(firstAndPike.data[i] + seaTacAirport.data[i] + seattleCenter.data[i] + capitolHill.data[i] + alkiBeach.data[i]);
-    console.log(total);
   }
   return total;
 }
