@@ -17,7 +17,6 @@ body{
 .table{
   background-color: grey;
   border: 2px dashed white;
-  text-align: center;
 }
 #sal{
   background-image: url('salmon.png');

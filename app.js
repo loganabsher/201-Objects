@@ -49,13 +49,13 @@ function table(obj){
   console.log(obj);
   // referencing the string name stored in location
   var name = obj.name;
-  // referencing sales.html ul element
+  // referencing sales.html table element
   var tableEl = document.getElementById('cookies');
   // creating tr items
   var nameEl = document.createElement('tr');
   // giving tr items the string "name"
   nameEl.textContent = name;
-  // creating td items from data arrays stored earlier
+  // creating td items from data arrays stored earlier in location
   for(var i = 0; i < obj.data.length; i++){
     var content = obj.data[i];
     var dataEl = document.createElement('td');
