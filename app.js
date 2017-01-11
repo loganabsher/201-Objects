@@ -39,7 +39,7 @@ table(capitolHill);
 var alkiBeach = new location('Alki Beach', 2, 16, 4.8, randomAverage('Alki Beach', 2, 16));
 console.log(alkiBeach);
 table(alkiBeach);
-var totalsPerHour = new location('Totals', null, null, null, );
+var totalsPerHour = new location('Totals', null, null, null, hourlyTotal(firstAndPike, seaTacAirport, seattleCenter, capitolHill, alkiBeach));
 console.log(totalsPerHour);
 table(totalsPerHour);
 
@@ -68,8 +68,13 @@ function table(obj){
   }
   tableEl.appendChild(nameEl);
 }
-function hourlyTotal(hours){
-
+function hourlyTotal(firstAndPike, seaTacAirport, seattleCenter, capitolHill, alkiBeach){
+  var total = [];
+  for(var i = 0; i < firstAndPike.data.length; i++){
+    total.push(firstAndPike.data[i] + seaTacAirport.data[i] + seattleCenter.data[i] + capitolHill.data[i] + alkiBeach.data[i]);
+    console.log(total);
+  }
+  return total;
 }
 
 // var tableEl = document.getElementById('coockie-table');
