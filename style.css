@@ -24,6 +24,7 @@ body{
   z-index: -1;
 }
 #location{
+  float: left;
   color: red;
 }
 #title{
@@ -33,4 +34,6 @@ body{
 }
 ul{
   float: left;
+  background-color: grey;
+  border: dashed white 2px;
 }

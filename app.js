@@ -1,13 +1,13 @@
 'use strict';
 
-var hours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', '8pm'];
+var hours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', '8pm', 'total', 'average'];
 
 // takes in paramiters for random number range and creates and returns an array of 17 elements
 function randomAverage(name, minCust, maxCust, avrg){
   var average = 0;
   var data = [];
   document.write('<h2 id="location">' + name + ':<br>');
-  for(var i = 0; i <= hours.length - 1; i++){
+  for(var i = 0; i <= hours.length - 3; i++){
     var random = Math.round((Math.random() * (maxCust - minCust) + minCust));
     console.log(random + ' cookies at ' + hours[i]);
     data.push(random);
@@ -24,11 +24,11 @@ function randomAverage(name, minCust, maxCust, avrg){
   return data;
 }
 function printList(data){
-  var list = document.getElementById('data-list');
-  for(var i = hours.length; i > 0; i--){
+  var list = document.getElementById('salmonList');
+  for(var i = 0; i < data.length; i++){
     console.log(data[i]);
     var listEl = document.createElement('li');
-    listEl.textContent = data[i] + ' is the content at index: ' + i;
+    listEl.textContent = hours[i] + ' ' + Math.round(data[i]) + ' cookies sold';
     list.appendChild(listEl);
   }
 }
@@ -40,6 +40,7 @@ var firstAndPike = {
   table: function(){
     console.log(this.name);
     var data = randomAverage(this.name, this.minCust, this.maxCust, this.avrg);
+    data.pop(name);
     printList(data);
     console.log(data);
   }
@@ -56,6 +57,7 @@ var seaTacAirport = {
   table: function(){
     console.log(this.name);
     var data = randomAverage(this.name, this.minCust, this.maxCust, this.avrg);
+    printList(data);
     console.log(data);
   }
 };
@@ -71,6 +73,7 @@ var seattleCenter = {
   table: function(){
     console.log(this.name);
     var data = randomAverage(this.name, this.minCust, this.maxCust, this.avrg);
+    printList(data);
     console.log(data);
   }
 };
@@ -86,6 +89,7 @@ var capitolHill = {
   table: function(){
     console.log(this.name);
     var data = randomAverage(this.name, this.minCust, this.maxCust, this.avrg);
+    printList(data);
     console.log(data);
   }
 };
@@ -101,6 +105,7 @@ var alki = {
   table: function(){
     console.log(this.name);
     var data = randomAverage(this.name, this.minCust, this.maxCust, this.avrg);
+    printList(data);
     console.log(data);
   }
 };
