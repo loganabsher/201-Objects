@@ -62,9 +62,9 @@ function table(obj){
   for(var i = 0; i < obj.data.length; i++){
     var content = obj.data[i];
     console.log(obj.data[i]);
-    var rowEl = document.createElement('td');
-    rowEl.textContent = content;
-    nameEl.appendChild(rowEl);
+    var dataEl = document.createElement('td');
+    dataEl.textContent = content;
+    nameEl.appendChild(dataEl);
   }
   tableEl.appendChild(nameEl);
 }
