@@ -6,7 +6,6 @@ var hours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '
 function randomAverage(name, minCust, maxCust, avrg){
   var average = 0;
   var data = [];
-  document.write('<h2 id="location">' + name + ':<br>');
   for(var i = 0; i <= hours.length - 3; i++){
     var random = Math.round((Math.random() * (maxCust - minCust) + minCust));
     console.log(random + ' cookies at ' + hours[i]);
@@ -25,15 +24,18 @@ function randomAverage(name, minCust, maxCust, avrg){
 }
 function printList(data, name){
   var list = document.getElementById('salmonList');
-  var listHead = document.getElementById('listHead');
-  var headEl = document.createElement('article');
-  headEl.textContent = name;
+  var listHead = document.createElement('h2');
+  var head = document.createElement('ul');
+  listHead.textContent = name;
   for(var i = 0; i < data.length; i++){
     console.log(data[i]);
     var listEl = document.createElement('li');
     listEl.textContent = hours[i] + ' ' + Math.round(data[i]) + ' cookies sold';
-    list.appendChild(listEl);
+    console.log('listEl', listEl);
+    head.appendChild(listEl);
   }
+  salmonList.appendChild(listHead);
+  salmonList.appendChild(head);
 }
 var firstAndPike = {
   name: 'First and Pike',
@@ -48,8 +50,6 @@ var firstAndPike = {
     console.log(data);
   }
 };
-
-console.log(firstAndPike);
 firstAndPike.table();
 
 var seaTacAirport = {
@@ -64,8 +64,6 @@ var seaTacAirport = {
     console.log(data);
   }
 };
-
-console.log(seaTacAirport);
 seaTacAirport.table();
 
 var seattleCenter = {
@@ -80,8 +78,6 @@ var seattleCenter = {
     console.log(data);
   }
 };
-
-console.log(seattleCenter);
 seattleCenter.table();
 
 var capitolHill = {
@@ -96,8 +92,6 @@ var capitolHill = {
     console.log(data);
   }
 };
-
-console.log(capitolHill);
 capitolHill.table();
 
 var alki = {
@@ -112,6 +106,4 @@ var alki = {
     console.log(data);
   }
 };
-
-console.log(alki);
 alki.table();
