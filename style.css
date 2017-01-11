@@ -17,6 +17,7 @@ body{
 .table{
   background-color: grey;
   border: 2px dashed white;
+  text-align: center;
 }
 #sal{
   background-image: url('salmon.png');
@@ -29,7 +30,4 @@ body{
   font-style: oblique;
   font-size: 4em;
   margin-right: 25%;
-}
-article{
-  
 }

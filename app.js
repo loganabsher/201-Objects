@@ -1,7 +1,6 @@
 'use strict';
-
+// declaring model array
 var hours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', '8pm', 'total', 'average'];
-
 // takes in paramiters for random number range and creates and returns an array of 17 elements
 function randomAverage(name, minCust, maxCust){
   var average = 0;
@@ -10,6 +9,7 @@ function randomAverage(name, minCust, maxCust){
   for(var i = 0; i <= hours.length - 3; i++){
     // creating random variable based on input
     var random = Math.round((Math.random() * (maxCust - minCust) + minCust));
+    // counting total
     total = total + random;
     data.push(random);
   }
@@ -22,20 +22,21 @@ function randomAverage(name, minCust, maxCust){
 }
 // creating stores at different locations and different customer ranges
 var headOfTable = new location('Store Location', null, null, null, hours);
-table(headOfTable);
 var firstAndPike = new location('First and Pike', 23, 65, 6.3, randomAverage('First and Pike', 23, 65));
-table(firstAndPike);
 var seaTacAirport = new location('Seatac Airport', 3, 24, 1.2, randomAverage('Seatac Airport', 3, 24));
-table(seaTacAirport);
 var seattleCenter = new location('Seattle Center', 11, 28, 3.7, randomAverage('Seattle Center', 11, 28));
-table(seattleCenter);
 var capitolHill = new location('Capitol Hill', 20, 38, 2.3, randomAverage('Capitol Hill', 20, 38));
-table(capitolHill);
 var alkiBeach = new location('Alki Beach', 2, 16, 4.8, randomAverage('Alki Beach', 2, 16));
-table(alkiBeach);
 var totalsPerHour = new location('Totals', null, null, null, hourlyTotal(firstAndPike, seaTacAirport, seattleCenter, capitolHill, alkiBeach));
+// printing table based on location objects
+table(headOfTable);
+table(firstAndPike);
+table(seaTacAirport);
+table(seattleCenter);
+table(capitolHill);
+table(alkiBeach);
 table(totalsPerHour);
-
+// stores information
 function location(name, minCust, maxCust, avrg, data){
   this.name = name;
   this.minCust = minCust;
@@ -43,25 +44,34 @@ function location(name, minCust, maxCust, avrg, data){
   this.avrg = avrg;
   this.data = data;
 }
-
 // constructs a table using an array of data
 function table(obj){
   console.log(obj);
+  // referencing the string name stored in location
   var name = obj.name;
+  // referencing sales.html ul element
   var tableEl = document.getElementById('cookies');
+  // creating tr items
   var nameEl = document.createElement('tr');
+  // giving tr items the string "name"
   nameEl.textContent = name;
+  // creating td items from data arrays stored earlier
   for(var i = 0; i < obj.data.length; i++){
     var content = obj.data[i];
     var dataEl = document.createElement('td');
     dataEl.textContent = content;
+    // assigning td to tr
     nameEl.appendChild(dataEl);
   }
+  // assigning tr to the <table> element in sales.html
   tableEl.appendChild(nameEl);
 }
+// creates an hourly total based on all stores created in location
 function hourlyTotal(firstAndPike, seaTacAirport, seattleCenter, capitolHill, alkiBeach){
   var total = [];
+  // references the data arrays of all store locations and creates a total
   for(var i = 0; i < firstAndPike.data.length; i++){
+    // pushes total of all arrays into a new array
     total.push(firstAndPike.data[i] + seaTacAirport.data[i] + seattleCenter.data[i] + capitolHill.data[i] + alkiBeach.data[i]);
   }
   return total;
