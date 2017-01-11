@@ -49,19 +49,17 @@ function table(obj){
     if(j === 0){
       // creating the table header
       var nameEl = document.createElement('thead');
-      var name = obj[j].name;
     }
     else if(j === obj.length - 1){
       // creating the table footer
       var nameEl = document.createElement('tfoot');
-      var name = obj[j].name;
     }
     else{
       // creating core tr items
       var nameEl = document.createElement('tr');
       // referencing the string name stored in location
-      var name = obj[j].name;
     }
+    var name = obj[j].name;
     // giving tr items the string "name"
     nameEl.textContent = name;
     // creating td items from data arrays stored earlier in location
