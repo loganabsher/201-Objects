@@ -2,11 +2,12 @@
   font-family:
   color: cyan;
 }
-.data{
+#cookies{
   font-family: helvetica;
   color: lightgreen;
   background-color: grey;
   border: 2px dashed white;
+  font-size: 1.6em;
 }
 body{
   font-family: times;
@@ -23,13 +24,9 @@ body{
   opacity: .5;
   z-index: -1;
 }
-#location{
-  color: red;
-}
 #title{
   text-align: center;
   font-style: oblique;
-}
-ul{
-  float: left;
+  font-size: 4em;
+  margin-right: 25%;
 }
