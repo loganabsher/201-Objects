@@ -28,14 +28,10 @@ var seattleCenter = new location('Seattle Center', 11, 28, 3.7, randomAverage('S
 var capitolHill = new location('Capitol Hill', 20, 38, 2.3, randomAverage('Capitol Hill', 20, 38));
 var alkiBeach = new location('Alki Beach', 2, 16, 4.8, randomAverage('Alki Beach', 2, 16));
 var totalsPerHour = new location('Totals', null, null, null, hourlyTotal(firstAndPike, seaTacAirport, seattleCenter, capitolHill, alkiBeach));
-// printing table based on location objects
-table(headOfTable);
-table(firstAndPike);
-table(seaTacAirport);
-table(seattleCenter);
-table(capitolHill);
-table(alkiBeach);
-table(totalsPerHour);
+// making an array of all table elements
+var tableArray = [headOfTable, firstAndPike, seaTacAirport, seattleCenter, capitolHill, alkiBeach, totalsPerHour];
+// passing table array into table constructor
+table(tableArray);
 // stores information
 function location(name, minCust, maxCust, avrg, data){
   this.name = name;
@@ -47,24 +43,38 @@ function location(name, minCust, maxCust, avrg, data){
 // constructs a table using an array of data
 function table(obj){
   console.log(obj);
-  // referencing the string name stored in location
-  var name = obj.name;
-  // referencing sales.html table element
-  var tableEl = document.getElementById('cookies');
-  // creating tr items
-  var nameEl = document.createElement('tr');
-  // giving tr items the string "name"
-  nameEl.textContent = name;
-  // creating td items from data arrays stored earlier in location
-  for(var i = 0; i < obj.data.length; i++){
-    var content = obj.data[i];
-    var dataEl = document.createElement('td');
-    dataEl.textContent = content;
-    // assigning td to tr
-    nameEl.appendChild(dataEl);
+  for(var j = 0; j < obj.length; j++){
+    // referencing sales.html table element
+    var tableEl = document.getElementById('cookies');
+    if(j === 0){
+      // creating the table header
+      var nameEl = document.createElement('thead');
+      var name = obj[j].name;
+    }
+    else if(j === obj.length - 1){
+      // creating the table footer
+      var nameEl = document.createElement('tfoot');
+      var name = obj[j].name;
+    }
+    else{
+      // creating core tr items
+      var nameEl = document.createElement('tr');
+      // referencing the string name stored in location
+      var name = obj[j].name;
+    }
+    // giving tr items the string "name"
+    nameEl.textContent = name;
+    // creating td items from data arrays stored earlier in location
+    for(var i = 0; i < obj[j].data.length; i++){
+      var content = obj[j].data[i];
+      var dataEl = document.createElement('td');
+      dataEl.textContent = content;
+      // assigning td to tr
+      nameEl.appendChild(dataEl);
+    }
+    // assigning tr to the <table> element in sales.html
+    tableEl.appendChild(nameEl);
   }
-  // assigning tr to the <table> element in sales.html
-  tableEl.appendChild(nameEl);
 }
 // creates an hourly total based on all stores created in location
 function hourlyTotal(firstAndPike, seaTacAirport, seattleCenter, capitolHill, alkiBeach){
@@ -81,100 +91,3 @@ function hourlyTotal(firstAndPike, seaTacAirport, seattleCenter, capitolHill, al
   }
   return total;
 }
-
-// var tableEl = document.getElementById('coockie-table');
-// console.log('table: ', tableEl);
-// for(var i = 0; i < tableData.length; i++){
-//   var rowData = tableData[i];
-//   var rowEl = document.createElement('tr');
-//   for(var j = 0; j < rowData.length; j++){
-//     var content = rowData[j];
-//     var dataEl = document.createElement('td');
-//     dataEl.textContent = content;
-//     rowEl.appendChild(dataEl);
-//   }
-//   tableEl.appendChild(rowEl);
-// }
-
-// var firstAndPike = {
-//   name: 'First and Pike',
-//   minCust: 23,
-//   maxCust: 65,
-//   avrg: 6.3,
-//   table: function(){
-//     console.log(this.name);
-//     var data = randomAverage(this.name, this.minCust, this.maxCust, this.avrg);
-//     console.log(data);
-//   }
-// };
-//
-// console.log(firstAndPike);
-// firstAndPike.table();
-//
-// var seaTacAirport = {
-//   name: 'Seatac Airport',
-//   minCust: 3,
-//   maxCust: 24,
-//   avrg: 1.2,
-//   table: function(){
-//     console.log(this.name);
-//     var data = randomAverage(this.name, this.minCust, this.maxCust, this.avrg);
-//     console.log(data);
-//   }
-// };
-//
-// console.log(seaTacAirport);
-// seaTacAirport.table();
-//
-// var seattleCenter = {
-//   name: 'Seattle Center',
-//   minCust: 11,
-//   maxCust: 38,
-//   avrg: 3.7,
-//   table: function(){
-//     console.log(this.name);
-//     var data = randomAverage(this.name, this.minCust, this.maxCust, this.avrg);
-//     console.log(data);
-//   }
-// };
-//
-// console.log(seattleCenter);
-// seattleCenter.table();
-//
-// var capitolHill = {
-//   name: 'Capitol Hill',
-//   minCust: 20,
-//   maxCust: 38,
-//   avrg: 2.3,
-//   table: function(){
-//     console.log(this.name);
-//     var data = randomAverage(this.name, this.minCust, this.maxCust, this.avrg);
-//     console.log(data);
-//   }
-// };
-//
-// console.log(capitolHill);
-// capitolHill.table();
-//
-// var alkiBeach = {
-//   name: 'Alki Beach',
-//   minCust: 2,
-//   maxCust: 16,
-//   avrg: 4.8,
-//   table: function(){
-//     console.log(this.name);
-//     var data = randomAverage(this.name, this.minCust, this.maxCust, this.avrg);
-//     console.log(data);
-//   }
-// };
-//
-// console.log(alkiBeack);
-// alkiBeach.table();
-//
-// var russel = new person('russel', 27, 'russel@gohawks.com');
-// var adamwallraff = new person('Adam', 30, 'adamwallraff@gmail.com');
-// function person(name, age, email){
-//   this.name = name;
-//   this.age = age;
-//   this.email = email;
-// }
