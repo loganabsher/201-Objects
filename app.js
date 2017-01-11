@@ -23,8 +23,11 @@ function randomAverage(name, minCust, maxCust, avrg){
   console.log(average);
   return data;
 }
-function printList(data){
+function printList(data, name){
   var list = document.getElementById('salmonList');
+  var listHead = document.getElementById('listHead');
+  var headEl = document.createElement('article');
+  headEl.textContent = name;
   for(var i = 0; i < data.length; i++){
     console.log(data[i]);
     var listEl = document.createElement('li');
@@ -41,7 +44,7 @@ var firstAndPike = {
     console.log(this.name);
     var data = randomAverage(this.name, this.minCust, this.maxCust, this.avrg);
     data.pop(name);
-    printList(data);
+    printList(data, this.name);
     console.log(data);
   }
 };
@@ -57,7 +60,7 @@ var seaTacAirport = {
   table: function(){
     console.log(this.name);
     var data = randomAverage(this.name, this.minCust, this.maxCust, this.avrg);
-    printList(data);
+    printList(data, this.name);
     console.log(data);
   }
 };
@@ -73,7 +76,7 @@ var seattleCenter = {
   table: function(){
     console.log(this.name);
     var data = randomAverage(this.name, this.minCust, this.maxCust, this.avrg);
-    printList(data);
+    printList(data, this.name);
     console.log(data);
   }
 };
@@ -89,7 +92,7 @@ var capitolHill = {
   table: function(){
     console.log(this.name);
     var data = randomAverage(this.name, this.minCust, this.maxCust, this.avrg);
-    printList(data);
+    printList(data, this.name);
     console.log(data);
   }
 };
@@ -105,7 +108,7 @@ var alki = {
   table: function(){
     console.log(this.name);
     var data = randomAverage(this.name, this.minCust, this.maxCust, this.avrg);
-    printList(data);
+    printList(data, this.name);
     console.log(data);
   }
 };
