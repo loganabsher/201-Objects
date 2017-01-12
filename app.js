@@ -10,7 +10,6 @@ function Location(name, minCust, maxCust, avrg){
   this.data = randomAverage(this.name, this.minCust, this.maxCust);
 }
 // creating stores at different locations and different customer ranges
-var headOfTable = new Location('Store Location', 0, 0, 0);
 // var userInput = new Location(getElementById('username'), getElementById('userMinCust'), getElementById('userMaxCust'), randomAverage(getElementById('username'), getElementById('userMinCust'), getElementById('userMaxCust')));
 var firstAndPike = new Location('First and Pike', 23, 65, 6.3);
 var seaTacAirport = new Location('Seatac Airport', 3, 24, 1.2);
@@ -19,8 +18,6 @@ var capitolHill = new Location('Capitol Hill', 20, 38, 2.3);
 var alkiBeach = new Location('Alki Beach', 2, 16, 4.8);
 // making an array of all store elements
 var tableArray = [firstAndPike, seaTacAirport, seattleCenter, capitolHill, alkiBeach];
-// making an array for the header and footer elements
-var headFoot = [headOfTable, hourlyTotal(tableArray)];
 // takes in paramiters for random number range and creates and returns an array of 17 elements
 function randomAverage(name, minCust, maxCust){
   var average = 0;
@@ -50,20 +47,29 @@ function hourlyTotal(tableArray){
     for(var j = 0; j < tableArray.length; j++){
       counter = counter + parseInt(tableArray[j].data[i]);
     }
-    total.push(counter / tableArray.length);
-    counter = 0;
+    if(j === tableArray[0].data.length - 1){
+      total.push(counter / tableArray.length);
+      console.log(total);
+    }
+    else{
+      total.push(counter);
+      counter = 0;
+    }
   }
-  console.log(total);
   return total;
 }
-var totalsPerHour = new Location('Hourly Totals', 0, 0, 0);
 // constructs a table using an array of data
-function Table(obj, headFoot){
-  console.log(obj);
-  console.log(headFoot);
+function Table(obj, hourlyTotal){
+  var tableEl = document.getElementById('cookies');
+  console.log(obj, hourlyTotal);
+  //creating header based on the working hours
+  for(var k = -1; k < hours.length + 1; k++){
+    var headEl = document.createElement('th');
+    headEl.textContent = hours[k];
+    tableEl.appendChild(headEl);
+  }
   for(var j = 0; j < obj.length; j++){
     // referencing sales.html table element
-    var tableEl = document.getElementById('cookies');
     // creating core tr items
     var nameEl = document.createElement('tr');
     // referencing the string name stored in location
@@ -81,9 +87,18 @@ function Table(obj, headFoot){
     // assigning tr to the <table> element in sales.html
     tableEl.appendChild(nameEl);
   }
+  var footerEl = document.createElement('tfoot');
+  footerEl.textContent = 'Totals Per Hour';
+  for(var l = 0; l < hourlyTotal.length; l++){
+    var footEl = hourlyTotal[l];
+    var totalEl = document.createElement('td');
+    totalEl.textContent = footEl;
+    footerEl.appendChild(totalEl);
+  }
+  tableEl.appendChild(footerEl);
 }
 // passing table array into table constructor
-var salmonTable = new Table(tableArray);
+var salmonTable = new Table(tableArray, hourlyTotal(tableArray));
 salmonTable;
 //need to seperate totals from location array
 //going to need to change the constructor
@@ -96,3 +111,5 @@ salmonTable;
 //create new object elements
 //push objects to tabel array
 //step="0.01" will add decimals to inputs
+// user.addEventListener('submit', thing, false);
+// function user
