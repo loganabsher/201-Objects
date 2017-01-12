@@ -5,12 +5,40 @@
     <link rel="stylesheet" type="text/CSS" href="style.css">
   </head>
   <body>
-    <h1 id="title">Salmon Cookies</h1>
+    <section id="sal">
+      <h1 id="title">Salmon Cookies</h1>
+    </section>
+    <fieldset>
+      <legend>Input</legend>
+      <label for="storeMax">Maximum Customers</label>
+      <input name="storeMax" id="userMaxCust" value="Maximum Customers">
+      <label for="storeMin">Minimum Customers</label>
+      <input for="storeMin" id="userMinCust" value="Minimum Customers">
+      <label for="storeName">Store Location</label>
+      <input for="storeName" id="username" value="Store Location">
+    </fieldset>
     <article class="table">
      <table id="cookies"></table>
    </article>
   </body>
   <footer>
+    <fieldset>
+      <legend>links</legend>
+      <a href="index.html">Home</a>
+    </fieldset>
     <script src="app.js"></script>
   </footer>
 </html>
+
+<!-- <section id="form-section">
+  <form id="first-form">
+    <fieldset>
+      <legend>MyFirst Form</legend>
+      <label for="username">Name:</label>
+      <input name="username" id="name-input" type="text"/>
+      <label for="password">Password:</label>
+      <input name="password" id="password-input" type="password"/>
+      <button id="submit-button" type="submit">SUBMIT</button>
+    </fieldset>
+  </form>
+</section> -->

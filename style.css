@@ -19,13 +19,16 @@ body{
 }
 #sal{
   background-image: url('salmon.png');
+  background-position: center;
+  margin: 25px;
   background-repeat: no-repeat;
   opacity: .5;
-  z-index: -1;
+  /*z-index: -1;*/
 }
+
 #title{
   text-align: center;
   font-style: oblique;
   font-size: 4em;
-  margin-right: 25%;
+  padding: 2.0em;
 }

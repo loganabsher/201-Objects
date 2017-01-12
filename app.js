@@ -21,19 +21,23 @@ function randomAverage(name, minCust, maxCust){
   return data;
 }
 // creating stores at different locations and different customer ranges
-var headOfTable = new location('Store Location', null, null, null, hours);
-var firstAndPike = new location('First and Pike', 23, 65, 6.3, randomAverage('First and Pike', 23, 65));
-var seaTacAirport = new location('Seatac Airport', 3, 24, 1.2, randomAverage('Seatac Airport', 3, 24));
-var seattleCenter = new location('Seattle Center', 11, 28, 3.7, randomAverage('Seattle Center', 11, 28));
-var capitolHill = new location('Capitol Hill', 20, 38, 2.3, randomAverage('Capitol Hill', 20, 38));
-var alkiBeach = new location('Alki Beach', 2, 16, 4.8, randomAverage('Alki Beach', 2, 16));
-var totalsPerHour = new location('Totals', null, null, null, hourlyTotal(firstAndPike, seaTacAirport, seattleCenter, capitolHill, alkiBeach));
+
+var headOfTable = new Location('Store Location', null, null, null, hours);
+// var userInput = new Location(getElementById('username'), getElementById('userMinCust'), getElementById('userMaxCust'), randomAverage(getElementById('username'), getElementById('userMinCust'), getElementById('userMaxCust')));
+var firstAndPike = new Location('First and Pike', 23, 65, 6.3, randomAverage('First and Pike', 23, 65));
+var seaTacAirport = new Location('Seatac Airport', 3, 24, 1.2, randomAverage('Seatac Airport', 3, 24));
+var seattleCenter = new Location('Seattle Center', 11, 28, 3.7, randomAverage('Seattle Center', 11, 28));
+var capitolHill = new Location('Capitol Hill', 20, 38, 2.3, randomAverage('Capitol Hill', 20, 38));
+var alkiBeach = new Location('Alki Beach', 2, 16, 4.8, randomAverage('Alki Beach', 2, 16));
+var totalsPerHour = new Location('Totals', null, null, null, hourlyTotal(firstAndPike, seaTacAirport, seattleCenter, capitolHill, alkiBeach));
 // making an array of all table elements
 var tableArray = [headOfTable, firstAndPike, seaTacAirport, seattleCenter, capitolHill, alkiBeach, totalsPerHour];
 // passing table array into table constructor
-table(tableArray);
+var salmonTable = new Table(tableArray);
+salmonTable;
+
 // stores information
-function location(name, minCust, maxCust, avrg, data){
+function Location(name, minCust, maxCust, avrg, data){
   this.name = name;
   this.minCust = minCust;
   this.maxCust = maxCust;
@@ -41,7 +45,7 @@ function location(name, minCust, maxCust, avrg, data){
   this.data = data;
 }
 // constructs a table using an array of data
-function table(obj){
+function Table(obj){
   console.log(obj);
   for(var j = 0; j < obj.length; j++){
     // referencing sales.html table element
@@ -52,11 +56,12 @@ function table(obj){
     }
     else if(j === obj.length - 1){
       // creating the table footer
-      var nameEl = document.createElement('tfoot');
+
+      nameEl = document.createElement('tfoot');
     }
     else{
       // creating core tr items
-      var nameEl = document.createElement('tr');
+      nameEl = document.createElement('tr');
       // referencing the string name stored in location
     }
     var name = obj[j].name;
