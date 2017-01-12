@@ -17,8 +17,10 @@ var seaTacAirport = new Location('Seatac Airport', 3, 24, 1.2);
 var seattleCenter = new Location('Seattle Center', 11, 28, 3.7);
 var capitolHill = new Location('Capitol Hill', 20, 38, 2.3);
 var alkiBeach = new Location('Alki Beach', 2, 16, 4.8);
-// making an array of all table elements
+// making an array of all store elements
 var tableArray = [firstAndPike, seaTacAirport, seattleCenter, capitolHill, alkiBeach];
+// making an array for the header and footer elements
+var headFoot = [headOfTable, hourlyTotal(tableArray)];
 // takes in paramiters for random number range and creates and returns an array of 17 elements
 function randomAverage(name, minCust, maxCust){
   var average = 0;
@@ -41,16 +43,17 @@ function randomAverage(name, minCust, maxCust){
 // creates an hourly total based on all stores created in location
 function hourlyTotal(tableArray){
   var total = [];
+  var counter = 0;
   // references the data arrays of all store locations and creates a total
-  for(var i = 0; i < tableArray.firstAndPike.data.length; i++){
+  for(var i = 0; i < tableArray[0].data.length; i++){
     // creates the total average
-    if(i === firstAndPike.data.length - 1){
-      total.push((firstAndPike.data[i] + seaTacAirport.data[i] + seattleCenter.data[i] + capitolHill.data[i] + alkiBeach.data[i]) / 5);
-      break;
+    for(var j = 0; j < tableArray.length; j++){
+      counter = counter + parseInt(tableArray[j].data[i]);
     }
-    // pushes total of all arrays into a new array
-    total.push(firstAndPike.data[i] + seaTacAirport.data[i] + seattleCenter.data[i] + capitolHill.data[i] + alkiBeach.data[i]);
+    total.push(counter / tableArray.length);
+    counter = 0;
   }
+  console.log(total);
   return total;
 }
 var totalsPerHour = new Location('Hourly Totals', 0, 0, 0);
