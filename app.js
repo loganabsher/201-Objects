@@ -39,10 +39,10 @@ function randomAverage(name, minCust, maxCust){
   return data;
 }
 // creates an hourly total based on all stores created in location
-function hourlyTotal(firstAndPike, seaTacAirport, seattleCenter, capitolHill, alkiBeach){
+function hourlyTotal(tableArray){
   var total = [];
   // references the data arrays of all store locations and creates a total
-  for(var i = 0; i < firstAndPike.data.length; i++){
+  for(var i = 0; i < tableArray.firstAndPike.data.length; i++){
     // creates the total average
     if(i === firstAndPike.data.length - 1){
       total.push((firstAndPike.data[i] + seaTacAirport.data[i] + seattleCenter.data[i] + capitolHill.data[i] + alkiBeach.data[i]) / 5);
