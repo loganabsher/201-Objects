@@ -21,6 +21,7 @@ function randomAverage(name, minCust, maxCust){
   return data;
 }
 // creating stores at different locations and different customer ranges
+
 var headOfTable = new Location('Store Location', null, null, null, hours);
 // var userInput = new Location(getElementById('username'), getElementById('userMinCust'), getElementById('userMaxCust'), randomAverage(getElementById('username'), getElementById('userMinCust'), getElementById('userMaxCust')));
 var firstAndPike = new Location('First and Pike', 23, 65, 6.3, randomAverage('First and Pike', 23, 65));
@@ -34,6 +35,7 @@ var tableArray = [headOfTable, firstAndPike, seaTacAirport, seattleCenter, capit
 // passing table array into table constructor
 var salmonTable = new Table(tableArray);
 salmonTable;
+
 // stores information
 function Location(name, minCust, maxCust, avrg, data){
   this.name = name;
@@ -54,6 +56,7 @@ function Table(obj){
     }
     else if(j === obj.length - 1){
       // creating the table footer
+
       nameEl = document.createElement('tfoot');
     }
     else{
