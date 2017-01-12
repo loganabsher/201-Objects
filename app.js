@@ -55,13 +55,14 @@ function hourlyTotal(firstAndPike, seaTacAirport, seattleCenter, capitolHill, al
 }
 var totalsPerHour = new Location('Hourly Totals', 0, 0, 0);
 // constructs a table using an array of data
-function Table(obj){
+function Table(obj, headFoot){
   console.log(obj);
+  console.log(headFoot);
   for(var j = 0; j < obj.length; j++){
     // referencing sales.html table element
     var tableEl = document.getElementById('cookies');
     // creating core tr items
-    nameEl = document.createElement('tr');
+    var nameEl = document.createElement('tr');
     // referencing the string name stored in location
     var name = obj[j].name;
     // giving tr items the string "name"
