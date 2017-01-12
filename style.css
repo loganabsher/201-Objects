@@ -32,3 +32,6 @@ body{
   font-size: 4em;
   padding: 2.0em;
 }
+tabel, tr, theah, td, tfoot{
+  border: 1px solid black;
+}

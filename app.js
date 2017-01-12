@@ -29,7 +29,7 @@ var seaTacAirport = new Location('Seatac Airport', 3, 24, 1.2, randomAverage('Se
 var seattleCenter = new Location('Seattle Center', 11, 28, 3.7, randomAverage('Seattle Center', 11, 28));
 var capitolHill = new Location('Capitol Hill', 20, 38, 2.3, randomAverage('Capitol Hill', 20, 38));
 var alkiBeach = new Location('Alki Beach', 2, 16, 4.8, randomAverage('Alki Beach', 2, 16));
-var totalsPerHour = new Location('Totals', null, null, null, hourlyTotal(firstAndPike, seaTacAirport, seattleCenter, capitolHill, alkiBeach));
+var totalsPerHour = new Location('Hourly Totals', null, null, null, hourlyTotal(firstAndPike, seaTacAirport, seattleCenter, capitolHill, alkiBeach));
 // making an array of all table elements
 var tableArray = [headOfTable, firstAndPike, seaTacAirport, seattleCenter, capitolHill, alkiBeach, totalsPerHour];
 // passing table array into table constructor
