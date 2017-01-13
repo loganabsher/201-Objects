@@ -13,7 +13,7 @@ body{
   color: black;
   background-color: darkgrey;
 }
-.table-article{
+#table-article{
   background-color: grey;
   border: 2px dashed white;
 }

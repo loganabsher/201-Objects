@@ -48,7 +48,7 @@ function hourlyTotal(tableArray){
     console.log(tableArray[0].data.length);
     if(i === tableArray[0].data.length - 1){
       // creating average of all averages
-      total.push(counter / tableArray.length);
+      total.push(Math.round(counter / tableArray.length));
       console.log(total);
     }
     else{
@@ -64,6 +64,7 @@ function table(obj, hourlyTotal){
   var articleEl = document.getElementById('table-article');
   var tableEl = document.createElement('table');
   tableEl.setAttribute('id', 'table-element');
+  tableEl.setAttribute('width', '100%');
   console.log(obj, hourlyTotal);
   //creating header based on the working hours
   for(var k = -1; k < hours.length + 1; k++){
