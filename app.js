@@ -60,7 +60,7 @@ function hourlyTotal(tableArray){
   return total;
 }
 // constructs a table using an array of data
-function Table(obj, hourlyTotal){
+function table(obj, hourlyTotal){
   var tableEl = document.getElementById('cookies');
   console.log(obj, hourlyTotal);
   //creating header based on the working hours
@@ -100,8 +100,7 @@ function Table(obj, hourlyTotal){
   tableEl.appendChild(footerEl);
 }
 // passing table array into table constructor
-var salmonTable = new Table(tableArray, hourlyTotal(tableArray));
-salmonTable;
+table(tableArray, hourlyTotal(tableArray));
 // referencing the form in sales.html
 var userEl = document.getElementById('userForm');
 // beginning user input event
@@ -117,7 +116,9 @@ var user = function(event){
   var userStore = new Location(userStore, parseInt(userMaxCust), parseInt(userMinCust), 0);
   // adding new store to table list
   tableArray.push(userStore);
+  table(tableArray, hourlyTotal(tableArray));
   console.log(userStore);
+  console.log(tableArray);
 };
 // creating an event listener
 userEl.addEventListener('submit', user, false);
