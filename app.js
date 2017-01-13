@@ -10,7 +10,6 @@ function Location(name, minCust, maxCust, avrg){
   this.data = randomAverage(this.name, this.minCust, this.maxCust);
 }
 // creating stores at different locations and different customer ranges
-// var userInput = new Location(getElementById('username'), getElementById('userMinCust'), getElementById('userMaxCust'), randomAverage(getElementById('username'), getElementById('userMinCust'), getElementById('userMaxCust')));
 var firstAndPike = new Location('First and Pike', 23, 65, 6.3);
 var seaTacAirport = new Location('Seatac Airport', 3, 24, 1.2);
 var seattleCenter = new Location('Seattle Center', 11, 28, 3.7);
@@ -32,7 +31,7 @@ function randomAverage(name, minCust, maxCust){
   }
   // total is the total number of customers during the day, it is added to data array
   data.push(total);
-  // adding the final average to the data array
+  // adding the average to the data array
   average = Math.round(total / (hours.length - 2));
   data.push(average);
   return data;
@@ -43,16 +42,17 @@ function hourlyTotal(tableArray){
   var counter = 0;
   // references the data arrays of all store locations and creates a total
   for(var i = 0; i < tableArray[0].data.length; i++){
-    // creates the total average
     for(var j = 0; j < tableArray.length; j++){
       counter = counter + parseInt(tableArray[j].data[i]);
     }
     console.log(tableArray[0].data.length);
     if(i === tableArray[0].data.length - 1){
+      // creating average of all averages
       total.push(counter / tableArray.length);
       console.log(total);
     }
     else{
+      // creating hourly totals and making an array
       total.push(counter);
       counter = 0;
     }
@@ -88,6 +88,7 @@ function Table(obj, hourlyTotal){
     // assigning tr to the <table> element in sales.html
     tableEl.appendChild(nameEl);
   }
+  // creating footer from hourly totals
   var footerEl = document.createElement('tfoot');
   footerEl.textContent = 'Totals Per Hour';
   for(var l = 0; l < hourlyTotal.length; l++){
@@ -101,39 +102,22 @@ function Table(obj, hourlyTotal){
 // passing table array into table constructor
 var salmonTable = new Table(tableArray, hourlyTotal(tableArray));
 salmonTable;
-//need to seperate totals from location array
-//going to need to change the constructor
-//something.addEventListener('submit','optional: somethingelse', false)
-//something.addEventListener(''submit, function(event))
-//function somehting('optional something'){}
-//event.preventDefault()
-//event.stopProgagation()
-//var something = event.target.something.value;
-//create new object elements
-//push objects to tabel array
-//step="0.01" will add decimals to inputs
+// referencing the form in sales.html
 var userEl = document.getElementById('userForm');
-
+// beginning user input event
 var user = function(event){
-  console.log(event);
+  // preventing page refresh
   event.preventDefault();
   event.stopPropagation();
+  // finding input values within the form and creating varibales to go with them
   var userStore = event.target.username.value;
   var userMaxCust = event.target.userMaxCust.value;
   var userMinCust = event.target.userMinCust.value;
-  console.log(userStore, userMaxCust, userMinCust);
+  // creating new location from user input
   var userStore = new Location(userStore, parseInt(userMaxCust), parseInt(userMinCust), 0);
+  // adding new store to table list
   tableArray.push(userStore);
   console.log(userStore);
 };
+// creating an event listener
 userEl.addEventListener('submit', user, false);
-// var formEl = document.getElementById('first-form');
-//
-// formEl.addEventListener('submit', function(event){
-//   event.preventDefault();
-//   event.stopPropagation();
-//
-//   renderUsername(event.target.username.value);
-//
-// //to handle old browsers we are setting this to false.  This is default behavior for newer browsers
-// },false);
