@@ -8,15 +8,18 @@
     <section id="sal">
       <h1 id="title">Salmon Cookies</h1>
     </section>
-    <fieldset>
-      <legend>Input</legend>
-      <label for="storeMax">Maximum Customers</label>
-      <input name="storeMax" id="userMaxCust" type="number">
-      <label for="storeMin">Minimum Customers</label>
-      <input for="storeMin" id="userMinCust" >
-      <label for="storeName">Store Location</label>
-      <input for="storeName" id="username" >
-    </fieldset>
+    <form id="userForm">
+      <fieldset>
+        <legend>New Store</legend>
+        <label for="storeName">Store Location</label>
+        <input name="username" type="text">
+        <label for="storeMax">Maximum Customers</label>
+        <input name="userMaxCust" type="text">
+        <label for="storeMin">Minimum Customers</label>
+        <input name="userMinCust" type="text">
+        <button type="submit">Submit</button>
+      </fieldset>
+    </form>
     <article class="table">
      <table id="cookies" width=100%></table>
    </article>

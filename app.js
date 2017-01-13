@@ -47,7 +47,8 @@ function hourlyTotal(tableArray){
     for(var j = 0; j < tableArray.length; j++){
       counter = counter + parseInt(tableArray[j].data[i]);
     }
-    if(j === tableArray[0].data.length - 1){
+    console.log(tableArray[0].data.length);
+    if(i === tableArray[0].data.length - 1){
       total.push(counter / tableArray.length);
       console.log(total);
     }
@@ -111,5 +112,28 @@ salmonTable;
 //create new object elements
 //push objects to tabel array
 //step="0.01" will add decimals to inputs
-// user.addEventListener('submit', thing, false);
-// function user
+var userEl = document.getElementById('userForm');
+
+var user = function(event){
+  console.log(event);
+  event.preventDefault();
+  event.stopPropagation();
+  var userStore = event.target.username.value;
+  var userMaxCust = event.target.userMaxCust.value;
+  var userMinCust = event.target.userMinCust.value;
+  console.log(userStore, userMaxCust, userMinCust);
+  var userStore = new Location(userStore, parseInt(userMaxCust), parseInt(userMinCust), 0);
+  tableArray.push(userStore);
+  console.log(userStore);
+};
+userEl.addEventListener('submit', user, false);
+// var formEl = document.getElementById('first-form');
+//
+// formEl.addEventListener('submit', function(event){
+//   event.preventDefault();
+//   event.stopPropagation();
+//
+//   renderUsername(event.target.username.value);
+//
+// //to handle old browsers we are setting this to false.  This is default behavior for newer browsers
+// },false);

@@ -23,15 +23,20 @@ body{
   margin: 25px;
   background-repeat: no-repeat;
   opacity: .5;
-  /*z-index: -1;*/
+  background-color: salmon;
+  border: 1em black solid;
+  border-radius: 50%;
 }
 
 #title{
   text-align: center;
   font-style: oblique;
-  font-size: 4em;
+  font-size: 4.5em;
   padding: 2.0em;
 }
-tabel, tr, theah, td, tfoot{
-  border: 1px solid black;
+tr, td, tfoot{
+  border: .05em solid black;
+}
+fieldset{
+  
 }
