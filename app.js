@@ -61,7 +61,9 @@ function hourlyTotal(tableArray){
 }
 // constructs a table using an array of data
 function table(obj, hourlyTotal){
-  var tableEl = document.getElementById('cookies');
+  var articleEl = document.getElementById('table-article');
+  var tableEl = document.createElement('table');
+  tableEl.setAttribute('id', 'table-element');
   console.log(obj, hourlyTotal);
   //creating header based on the working hours
   for(var k = -1; k < hours.length + 1; k++){
@@ -98,6 +100,7 @@ function table(obj, hourlyTotal){
     footerEl.appendChild(totalEl);
   }
   tableEl.appendChild(footerEl);
+  articleEl.appendChild(tableEl);
 }
 // passing table array into table constructor
 table(tableArray, hourlyTotal(tableArray));
@@ -116,9 +119,12 @@ var user = function(event){
   var userStore = new Location(userStore, parseInt(userMaxCust), parseInt(userMinCust), 0);
   // adding new store to table list
   tableArray.push(userStore);
+  // creating a old table element
+  var oldTableEl = document.getElementById('table-element');
+  // removing old table from the article
+  oldTableEl.parentElement.removeChild(oldTableEl);
+  // creating updated table
   table(tableArray, hourlyTotal(tableArray));
-  console.log(userStore);
-  console.log(tableArray);
 };
 // creating an event listener
 userEl.addEventListener('submit', user, false);

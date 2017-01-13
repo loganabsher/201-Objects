@@ -2,7 +2,7 @@
   font-family:
   color: cyan;
 }
-#cookies{
+#table-article{
   font-family: helvetica;
   color: lightgreen;
   background-color: grey;
@@ -13,7 +13,7 @@ body{
   color: black;
   background-color: darkgrey;
 }
-.table{
+.table-article{
   background-color: grey;
   border: 2px dashed white;
 }
@@ -38,5 +38,5 @@ tr, td, tfoot{
   border: .05em solid black;
 }
 fieldset{
-  
+
 }
